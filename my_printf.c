@@ -7,6 +7,7 @@
 
 #include <stdarg.h>
 #include "lib/my/my.h"
+#include <stdio.h>
 
 void my_putchar(char c);
 int my_putstr(char const *str);
@@ -29,9 +30,20 @@ int my_printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] == 's') {
 			my_putstr(va_arg(ap, char*));
 		}
+		/*if (format[i] == '%' && format[i + 1] == 'c') {
+			my_putchar(va_arg(ap, char));
+		}
 		/*if (format == "%p") {
 			my_putnbrbase(va_arg(ap, void*));
 		}*/
 	}
 	va_end(ap);
+}
+
+int main()
+{
+	char str[] = "c'est trop cool";
+
+	printf("%s", str);
+
 }

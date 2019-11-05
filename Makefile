@@ -17,7 +17,7 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	$(MAKE) -C ./lib/my/
-	gcc -o $(NAME) $(OBJ) -L ./lib/my -lmy
+	gcc -o $(NAME) $(OBJ) -Wall -Wextra -L ./lib/my -lmy
 
 clean:	rm -f $(OBJ)
 
