@@ -39,11 +39,3 @@ int my_printf(const char *format, ...)
 	}
 	va_end(ap);
 }
-
-int main()
-{
-	char str[] = "c'est trop cool";
-
-	printf("%s", str);
-
-}
