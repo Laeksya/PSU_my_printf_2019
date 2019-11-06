@@ -6,7 +6,7 @@
 */
 
 #include <stdarg.h>
-#include "lib/my/my.h"
+#include "my.h"
 #include <stdio.h>
 
 void my_putchar(char c);
@@ -36,6 +36,10 @@ int my_printf(const char *format, ...)
 		/*if (format == "%p") {
 			my_putnbrbase(va_arg(ap, void*));
 		}*/
-	}
+        if (format[i] == '%')
+            i++;
+        else
+            my_putchar(format[i]);
+    }
 	va_end(ap);
 }

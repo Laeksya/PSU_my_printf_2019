@@ -5,19 +5,21 @@
 ## Makefile
 ##
 
-SRC 	=	my_printf.c
+SRC 	=	lib/my/my_put_nbr.c	\
+		lib/my/my_putchar.c	\
+		lib/my/my_putstr.c	\
+		lib/my/my_strlen.c	\
+		lib/my/my_printf.c
+
 
 OBJ	= 	$(SRC:.c=.o)
 
-NAME 	=	my_printf
-
-CFLAGS += -I ./lib/my
+NAME 	=	libmy.a
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	$(MAKE) -C ./lib/my/
-	gcc -o $(NAME) $(OBJ) -Wall -Wextra -L ./lib/my -lmy
+	ar rc $(NAME) $(OBJ)
 
 clean:	rm -f $(OBJ)
 
