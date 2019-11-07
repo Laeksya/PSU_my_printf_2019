@@ -9,9 +9,34 @@
 #include "my.h"
 #include <stdio.h>
 
-void my_putchar(char c);
-int my_putstr(char const *str);
-int my_put_nbr(int nb);
+void my_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+int my_putstr(char const *str)
+{
+    int i = 0;
+
+    while (str[i] != '\0') {
+        my_putchar(str[i]);
+        i++;
+    }
+}
+int my_put_nbr(int nb)
+{
+    int i = nb;
+
+    if (nb < 0) {
+        my_putchar('-');
+        nb = nb * 1;
+    }
+    if (nb >= 10) {
+        my_put_nbr(nb / 10);
+    }
+    my_putchar(nb % 10 + '0');
+    return (0);
+}
 /*int my_putnbr_base(int nbr, char const *base);*/
 
 int my_printf(const char *format, ...)
