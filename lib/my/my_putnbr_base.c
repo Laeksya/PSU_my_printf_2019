@@ -5,10 +5,12 @@
 ** putnbr_base
 */
 
+#include "my.h"
+
 void my_putchar(char c);
 int my_strlen(char const *str);
 
-int my_putnbr_base(long long int nb, char const *base)
+int my_putnbr_base(int nb, char const *base)
 {
     int i = nb;
   	int base_len = my_strlen(base);

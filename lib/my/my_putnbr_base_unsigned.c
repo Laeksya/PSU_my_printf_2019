@@ -5,6 +5,8 @@
 ** putnbr_base_unsigned
 */
 
+#include "my.h"
+
 void my_putchar(char c);
 int my_strlen(char const *str);
 
