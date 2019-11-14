@@ -8,6 +8,7 @@
 #include "my.h"
 
 void my_putchar(char c);
+
 int my_strlen(char const *str);
 
 int my_putnbr_base_unsigned(unsigned int nb, char const *base)
