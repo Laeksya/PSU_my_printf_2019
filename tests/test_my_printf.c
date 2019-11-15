@@ -5,23 +5,18 @@
 ** test for my_printf function
 */
 
-#include <criterion/criterion.h>
+#include  <criterion/criterion.h>
+#include  <criterion/redirect.h>
+#include "my.h"
 
-int my_printf(char const *format, ...);
+int my_printf(const char *format, ...);
 
-Test(my_printf, prinf_an_int)
-{
-      char str[] = ;
-     cr_assert_eq(my_printf("%i", ));
+void  redirect_all_std(void)
+{   cr_redirect_stdout ();
+    cr_redirect_stderr ();
 }
-
-Test(my_printf, prinf_a_string)
+Test(my_printf , simple_string , .init = redirect_all_std)
 {
-
-    cr_assert_str_eq(my_printf("%s", ));
-}
-Test(my_printf, prinf_a_string)
-{
-    char str[] = "kakashiisbae";
-    cr_assert_str_eq(my_printf("%s",str), kakashiisbae\n));
+    my_printf("vive la vie");
+    cr_assert_stdout_eq_str("vive la vie");
 }
