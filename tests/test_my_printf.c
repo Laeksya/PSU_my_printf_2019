@@ -1,28 +1,27 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_printf.c
+** test_my_printf.c
 ** File description:
-** test_for_my_printf
+** test for my_printf function
 */
 
-#include  <criterion/criterion.h>
-#include  <criterion/redirect.h>
-#include "my.h"
+#include <criterion/criterion.h>
 
-int my_printf(const char *format, ...);
+int my_printf(char const *format, ...);
 
-void  redirect_all_std(void)
+Test(my_printf, prinf_an_int)
 {
-    cr_redirect_stdout ();
-    cr_redirect_stderr ();
+      char str[] = ;
+     cr_assert_eq(my_printf("%i", ));
 }
-Test(my_printf , simple_string , .init = redirect_all_std)
+
+Test(my_printf, prinf_a_string)
 {
-    my_printf("hello  world");
-    cr_assert_stdout_eq_str("hello  world");
+
+    cr_assert_str_eq(my_printf("%s", ));
 }
-Test(my_printf , flag_string , .init = redirect_all_std)
+Test(my_printf, prinf_a_string)
 {
-    my_printf("%s","icetea");
-    cr_assert_stdout_eq_str("icetea");
+    char str[] = "kakashiisbae";
+    cr_assert_str_eq(my_printf("%s",str), kakashiisbae\n));
 }

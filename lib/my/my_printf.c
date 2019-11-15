@@ -2,35 +2,39 @@
 ** EPITECH PROJECT, 2019
 ** my_printf.c
 ** File description:
-** reproduce_the_behavior_of_printf
+** reproduce_my_printf_behavior
 */
 
 #include <stdarg.h>
 #include "my.h"
 #include <stdio.h>
 
+int flags(char const *str, va_list ap, int c)
+{
+    char flags[10] = "sdiuXxcob%";
+
+    void(*function[10])() = {print_s, print_d, print_i, print_u, print_X,
+        print_x, print_c, print_o, print_b, print};
+        for (int z = 0; flags[z] != '\0'; z++) {
+            if (flags[z] == str[c])
+                function[z](ap);
+
+        }
+}
+
 int my_printf(const char *format, ...)
 {
-    int i;
+    int i = 0;
     va_list ap;
 
     va_start(ap, format);
-    for (i = 0; format[i] != '\0'; i++) {
-        if (format[i] == '%' && format[i + 1] == 'i')
-            my_put_nbr(va_arg(ap, int));
-        if (format[i] == '%' && format[i + 1] == 'd')
-            my_put_nbr(va_arg(ap, int));
-        if (format[i] == '%' && format[i + 1] == 's')
-            my_putstr(va_arg(ap, char*));
-        if (format[i] == '%' && format[i + 1] == 'X')
-            my_putnbr_base_unsigned(va_arg(ap, int), "0123456789ABCDEF");
-        if (format[i] == '%' && format[i + 1] == 'x')
-            my_putnbr_base_unsigned(va_arg(ap, int), "0123456789abcdef");
-        if (format[i] == '%' && format[i + 1] == 'c')
-            my_putchar((char)va_arg(ap, int));
-        if (format[i] == '%')
+    for (i = 0; format[i] != '\0'; i++)
+        if (format[i] == '%') {
             i++;
+        flags(format, ap, i);
+        }
         else
-            my_putchar(format[i]); }
+            my_putchar(format[i]);
+
     va_end(ap);
 }

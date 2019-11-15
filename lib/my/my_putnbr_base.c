@@ -5,10 +5,7 @@
 ** putnbr_base
 */
 
-#include "my.h"
-
-void my_putchar(char c);
-int my_strlen(char const *str);
+#include"my.h"
 
 int my_putnbr_base(int nb, char const *base)
 {
@@ -17,7 +14,7 @@ int my_putnbr_base(int nb, char const *base)
 
     if (nb < 0) {
         my_putchar('-');
-        nb = nb * 1;
+        nb = nb * (-1);
     }
     if (nb >= base_len) {
         my_putnbr_base(nb / base_len, base);
@@ -25,4 +22,3 @@ int my_putnbr_base(int nb, char const *base)
     my_putchar(base[nb % base_len]);
     return (0);
 }
-/*à la ligne 22 on affiche le constituant de la base à l'indice correspondant*/
