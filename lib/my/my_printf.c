@@ -22,8 +22,10 @@ int my_printf(const char *format, ...)
             my_put_nbr(va_arg(ap, int));
         if (format[i] == '%' && format[i + 1] == 's')
             my_putstr(va_arg(ap, char*));
-        if (format[i] == '%' && format[i + 1] == 'p')
-            my_putnbr_base(va_arg(ap, int), "0123456789");
+        if (format[i] == '%' && format[i + 1] == 'X')
+            my_putnbr_base_unsigned(va_arg(ap, int), "0123456789ABCDEF");
+        if (format[i] == '%' && format[i + 1] == 'x')
+            my_putnbr_base_unsigned(va_arg(ap, int), "0123456789abcdef");
         if (format[i] == '%' && format[i + 1] == 'c')
             my_putchar((char)va_arg(ap, int));
         if (format[i] == '%')
