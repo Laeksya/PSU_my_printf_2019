@@ -10,6 +10,7 @@ SRC 	=	lib/my/my_put_nbr.c	\
 		lib/my/my_putstr.c	\
 		lib/my/my_strlen.c	\
 		lib/my/my_putnbr_base.c \
+		lib/my/my_putnbr_unsigned.c \
 		lib/my/my_putnbr_base_unsigned.c \
 		lib/my/function_for_printf2.c 			\
 		lib/my/function_for_printf1.c        \
