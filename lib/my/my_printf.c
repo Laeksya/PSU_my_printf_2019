@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** my_printf.c
 ** File description:
-** reproduce_my_printf_behavior
+** my_printf
 */
 
 #include <stdarg.h>
@@ -17,7 +17,7 @@ int flags(char const *str, va_list ap, int c)
         print_x, print_c, print_o, print_b, print};
     for (int z = 0; flags[z] != '\0'; z++) {
         if (flags[z] == str[c])
-               function[z](ap);
+            function[z](ap);
     }
 }
 
